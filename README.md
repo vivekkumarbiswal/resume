@@ -1,59 +1,120 @@
-# Resume
+# Personal Portfolio – Resume Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.22.
+This project is a **personal portfolio website designed as an interactive resume**, built using **Angular**.
+It showcases my professional experience, skills, and achievements in a modern, responsive, and user-friendly format.
 
-## Development server
+---
 
-To start a local development server, run:
+## About Me
+
+Hi, I’m **Vivek Kumar Biswal** — a Frontend Developer with **4+ years of experience** in building scalable, high-performance web applications.
+
+* Angular Developer (v2+)
+* Strong in RxJS, TypeScript, SCSS
+* Experience with Ionic & Capacitor (Hybrid Apps)
+* Focused on Accessibility (WCAG, ARIA)
+* Star Team Award Winner
+
+---
+
+## Live Demo
+
+(Add your deployed link here – Netlify / Firebase / GitHub Pages)
+
+---
+
+## Features
+
+* Resume structured as a website
+* Fast and optimized Angular application
+* Fully responsive (Mobile + Tablet + Desktop)
+* Accessibility-friendly (ARIA, WCAG practices)
+* Clean UI with reusable components
+* Smooth navigation and transitions
+
+---
+
+## Tech Stack
+
+**Frontend:**
+
+* Angular
+* TypeScript
+* RxJS
+* HTML5
+* SCSS
+
+**Other Tools:**
+
+* Git (GitHub / GitLab / Bitbucket)
+* Docker (basic usage)
+* REST APIs
+
+---
+
+## Installation & Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the application:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open in browser:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
+
+## Build for Production
 
 ```bash
-ng generate --help
+ng build --prod
 ```
 
-## Building
+---
 
-To build the project run:
+## Key Highlights
 
-```bash
-ng build
-```
+* Built scalable Angular applications using best practices
+* Implemented reusable components to improve efficiency
+* Applied performance optimization techniques
+* Designed with accessibility and responsiveness in mind
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Contact
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+* Phone: +91 8********0
+* Email: [vivekkumarbiswal@gmail.com](mailto:vivekkumarbiswal@gmail.com)
+* LinkedIn: https://www.linkedin.com/in/vivek-kumar-biswal-a84856196/
+* GitHub: https://github.com/vivekkumarbiswal
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## Why This Project?
 
-For end-to-end (e2e) testing, run:
+This project reflects my ability to:
 
-```bash
-ng e2e
-```
+* Convert a real-world resume into a live web application
+* Apply Angular best practices in a structured project
+* Focus on UI/UX, performance, and accessibility
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+If you like this project, feel free to star the repository.
