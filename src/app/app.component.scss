@@ -1,11 +1,11 @@
 // ─── Color Tokens ────────────────────────────────────────────
-$color-ink: #18181b; // zinc-900
-$color-ink-light: #52525b; // zinc-600
-$color-ink-body: #27272a; // zinc-800
-$color-border: #e4e4e7; // zinc-200
-$color-link: #2563eb; // blue-600
-$color-link-hover: #1d4ed8; // blue-700
-$color-white: #ffffff;
+$color-ink: var(--color-ink);
+$color-ink-light: var(--color-ink-light);
+$color-ink-body: var(--color-ink-body);
+$color-border: var(--color-border);
+$color-link: var(--color-link);
+$color-link-hover: var(--color-link-hover);
+$color-white: var(--color-white);
 
 // ─── Typography ──────────────────────────────────────────────
 $font-family: "Inter", sans-serif;
@@ -20,9 +20,10 @@ $font-size-4xl: 2.25rem;
 .resume-wrapper {
   font-family: $font-family;
   min-height: 100vh;
-  background-color: #f4f4f5;
+  background: var(--bg-wrapper);
   padding: 2rem 1rem;
   box-sizing: border-box;
+  transition: background 0.3s ease, color 0.3s ease;
 
   @media (min-width: 640px) {
     padding: 2rem 2rem;
@@ -42,6 +43,7 @@ $font-size-4xl: 2.25rem;
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
   padding: 2rem;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 
   @media (min-width: 768px) {
     padding: 3rem;
