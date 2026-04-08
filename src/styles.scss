@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&family=VT323&family=Roboto+Mono:wght@400;700&display=swap');
+
 /* Global Styles */
+
 
 *,
 *::before,
@@ -15,7 +18,13 @@
   --color-link-hover: #1d4ed8;
   --color-white: #ffffff;
   --bg-color: #f4f4f5;
-  --bg-wrapper: #f4f4f5;
+  --bg-wrapper: linear-gradient(135deg, #fdfbfb 0%, #eaedee 100%);
+  --bg-menu: rgba(255, 255, 255, 0.85); // Light menu glass
+  --color-primary: #18181b;
+  --color-secondary: #52525b;
+  --color-icon: #52525b;
+  --font-header: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 [data-theme='dark'] {
@@ -27,7 +36,32 @@
   --color-link-hover: #93c5fd;
   --color-white: #18181b;
   --bg-color: #09090b;
-  --bg-wrapper: #121214;
+  --bg-wrapper: linear-gradient(135deg, #27272a 0%, #09090b 100%);
+  --bg-menu: rgba(18, 18, 18, 0.85); // Dark menu glass
+  --color-primary: #f4f4f5;
+  --color-secondary: #a1a1aa;
+  --color-icon: #a1a1aa;
+  --font-header: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+[data-theme='netflix'] {
+  --color-ink: #ffffff;
+  --color-ink-light: #b3b3b3;
+  --color-ink-body: #e5e5e5;
+  --color-border: #333333;
+  --color-link: #e50914;
+  --color-link-hover: #f40612;
+  --color-white: #121212;
+  --bg-color: #000000;
+  --bg-wrapper: linear-gradient(135deg, #4a0404 0%, #000000 100%);
+  --bg-menu: rgba(20, 20, 20, 0.85); // Cinematic menu glass
+  --color-primary: #e50914;
+  --color-secondary: #e50914;
+  --color-icon: #e50914;
+  --font-header: "Bebas Neue", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-size-section: 1.65rem;
 }
 
 html,
@@ -46,4 +80,66 @@ body {
 
 a {
   color: inherit;
+}
+
+[data-theme='minecraft'] {
+  --color-ink: #f0f0f0;         // Clean white/gray voxel text
+  --color-ink-light: #aaaaaa;   // Stone gray
+  --color-ink-body: #dddddd;    
+  --color-border: #422d1b;      // Dark dirt edge for lines
+  --color-link: #51f0ea;        // Diamond blue
+  --color-link-hover: #ffffff;
+  --color-white: #735133;       // Primary Dirt background
+  --bg-color: #55792F;          // Grass Green background
+  --bg-wrapper: linear-gradient(180deg, #55792F 0%, #735133 100%); // Grass to dirt descent
+  --bg-menu: rgba(0, 0, 0, 0.85); // Void menu glass
+  --color-primary: #ffffff;     // White text titles
+  --color-secondary: #51f0ea;   // Diamond accents
+  --color-icon: #51f0ea;
+  --font-header: "Press Start 2P", monospace;
+  --font-body: "VT323", monospace;
+  --font-size-section: 1.5rem; 
+
+  // Radically scale up VT323 body typography because it inherently renders functionally very small
+  --font-size-xs: 1rem;
+  --font-size-sm: 1.2rem;
+  --font-size-base: 1.35rem;
+  --font-size-lg: 1.5rem;
+}
+
+[data-theme='amazon'] {
+  --color-ink: #0F1111;         // Amazon core text
+  --color-ink-light: #565959;   // Amazon secondary text
+  --color-ink-body: #0F1111;    
+  --color-border: #D5D9D9;      // Standard product card border
+  --color-link: #007185;        // Amazon Hyperlink Blue
+  --color-link-hover: #C7511F;  // Hover Link Orange
+  --color-white: #FFFFFF;       // Pure white product cards
+  --bg-color: #EAEDED;          // General page background
+  --bg-wrapper: #EAEDED;        
+  --color-primary: #FF9900;     // Amazon Orange Headers
+  --color-secondary: #007185;   // Secondary Blue Highlighting
+  --color-icon: #565959;
+  --font-header: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-size-section: 1.2rem;  
+}
+
+[data-theme='angular'] {
+  --color-ink: #ededed;         
+  --color-ink-light: #a1a1aa;   
+  --color-ink-body: #d4d4d8;    
+  --color-border: #27272a;      
+  --color-link: #c084fc;        // Neon Purple Link
+  --color-link-hover: #e879f9;  // Bright Fuchsia Hover
+  --color-white: #18181b;       
+  --bg-color: #050505;          
+  --bg-wrapper: #050505;        
+  --bg-menu: rgba(24, 24, 27, 0.85); // Developers dark glass 
+  --color-primary: #ffffff;     
+  --color-secondary: #b24fff;   // Angular Purple Brand Base
+  --color-icon: #c084fc;
+  --font-header: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-size-section: 1.4rem;  
 }

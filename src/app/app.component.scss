@@ -3,18 +3,22 @@ $color-ink: var(--color-ink);
 $color-ink-light: var(--color-ink-light);
 $color-ink-body: var(--color-ink-body);
 $color-border: var(--color-border);
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
 $color-link: var(--color-link);
 $color-link-hover: var(--color-link-hover);
 $color-white: var(--color-white);
+$color-icon: var(--color-icon);
 
 // ─── Typography ──────────────────────────────────────────────
-$font-family: "Inter", sans-serif;
-$font-size-xs: 0.75rem;
-$font-size-sm: 0.875rem;
-$font-size-base: 1rem;
-$font-size-lg: 1.125rem;
-$font-size-xl: 1.25rem;
-$font-size-4xl: 2.25rem;
+$font-family: var(--font-body, "Inter", sans-serif);
+$font-header: var(--font-header, "Inter", sans-serif);
+$font-size-xs: var(--font-size-xs, 0.75rem);
+$font-size-sm: var(--font-size-sm, 0.875rem);
+$font-size-base: var(--font-size-base, 1rem);
+$font-size-lg: var(--font-size-lg, 1.125rem);
+$font-size-xl: var(--font-size-xl, 1.25rem);
+$font-size-4xl: var(--font-size-4xl, 2.25rem);
 
 // ─── Resume Wrapper ──────────────────────────────────────────
 .resume-wrapper {
@@ -56,9 +60,10 @@ $font-size-4xl: 2.25rem;
 }
 
 .resume-name {
-  font-size: 1.75rem; // mobile default
+  font-family: $font-header;
+  font-size: 2rem; // slightly larger for netflix aesthetic
   font-weight: 700;
-  color: $color-ink;
+  color: $color-primary;
   margin: 0 0 0.5rem 0;
   line-height: 1.15;
 
@@ -112,6 +117,7 @@ $font-size-4xl: 2.25rem;
   flex-shrink: 0;
   position: relative;
   top: 0px;
+  color: $color-icon;
 }
 
 // ─── Sections ────────────────────────────────────────────────
@@ -120,15 +126,16 @@ $font-size-4xl: 2.25rem;
 }
 
 .section-title {
-  font-size: $font-size-lg;
+  font-family: $font-header;
+  font-size: var(--font-size-section, $font-size-lg);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: $color-ink;
+  letter-spacing: 0.02em;
+  color: $color-primary;
   margin: 0 0 0.375rem 0;
 
   &--bordered {
-    border-bottom: 2px solid $color-ink;
+    border-bottom: 2px solid $color-primary;
     padding-bottom: 0.25rem;
     margin-bottom: 0.625rem;
   }
@@ -154,6 +161,10 @@ $font-size-4xl: 2.25rem;
   li {
     margin-bottom: 0.3rem;
     line-height: 1.55;
+
+    &::marker {
+      color: $color-secondary;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -326,6 +337,139 @@ $font-size-4xl: 2.25rem;
   }
 }
 
+.theme-menu-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.theme-menu {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  right: 0;
+  background-color: var(--bg-menu);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 220px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: slideFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom right;
+
+  // Add the "Themes" category label visually via SCSS
+  &::before {
+    content: "VISUAL THEMES";
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-ink-light);
+    letter-spacing: 0.15em;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-ink);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+
+    svg {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.7;
+    }
+
+    &:hover {
+      background-color: var(--bg-color);
+      transform: translateX(4px);
+      
+      svg {
+        transform: scale(1.15) rotate(5deg);
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      color: var(--color-primary);
+      background-color: rgba(128, 128, 128, 0.05);
+
+      svg {
+        opacity: 1;
+      }
+
+      // Render a glowing pip for active state
+      &::after {
+        content: "";
+        position: absolute;
+        right: 1.25rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: currentColor;
+        box-shadow: 0 0 10px currentColor;
+      }
+    }
+  }
+
+  .netflix-option {
+    &.active, &:hover {
+      color: #e50914;
+      background-color: rgba(229, 9, 20, 0.1);
+    }
+  }
+
+  .minecraft-option {
+    &.active, &:hover {
+      color: #51f0ea;
+      background-color: rgba(81, 240, 234, 0.2);
+      font-family: inherit;
+    }
+  }
+
+  .amazon-option {
+    &.active, &:hover {
+      color: #FF9900;
+      background-color: rgba(255, 153, 0, 0.1);
+    }
+  }
+
+  .angular-option {
+    &.active, &:hover {
+      color: #b24fff;
+      background-color: rgba(178, 79, 255, 0.1);
+    }
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .fab {
   display: flex;
   align-items: center;
@@ -366,6 +510,14 @@ $font-size-4xl: 2.25rem;
     }
   }
 
+  &--netflix {
+    background-color: #e50914;
+
+    &:hover {
+      background-color: #b20710;
+    }
+  }
+
   &--blue {
     background-color: $color-link;
 
@@ -373,4 +525,290 @@ $font-size-4xl: 2.25rem;
       background-color: $color-link-hover;
     }
   }
+}
+
+// ─── Netflix Intro Overlay ───────────────────────────────────
+.netflix-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 99999;
+  animation: fadeOutIntro 1s forwards ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes fadeOutIntro {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// ─── Netflix Cinematic Focus Pattern ──────────────────────────
+:host-context([data-theme='netflix']) {
+  .resume-container {
+    &:has(.resume-section:hover) {
+      .resume-section:not(:hover),
+      .resume-header,
+      hr {
+        filter: blur(0.5px);
+        opacity: 0.85;
+      }
+    }
+  }
+
+  .resume-section, .resume-header, hr {
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .resume-section {
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin: -0.75rem -0.75rem 0.75rem -0.75rem;
+    border: 1px solid transparent;
+
+    &:hover {
+      transform: scale(1.015);
+      background-color: rgba(30, 30, 30, 0.8);
+      border-color: rgba(229, 9, 20, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      z-index: 10;
+      position: relative;
+    }
+  }
+}
+
+// ─── Minecraft Retro Voxel Override ───────────────────────────
+:host-context([data-theme='minecraft']) {
+  // Eliminate smooth modern aesthetics for pure blocky shapes
+  * {
+    border-radius: 0 !important;
+  }
+
+  // Swap out the delicate drop-shadows on the container for hard isometric block shadows
+  .resume-container {
+    border: 4px solid #422d1b !important;
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.8) !important;
+    padding: 2.5rem !important; // Ensure space for the border
+  }
+
+  .resume-section {
+    transition: none !important; // 8-bit doesn't have smooth transitions!
+    
+    // Give hover states a rigid "Block Selected" outline instead of blurring
+    &:hover {
+      transform: none !important; 
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      border: 3px dashed #51f0ea !important;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.5) !important;
+      padding: 1rem;
+      margin: -1rem; // Visual box compensation
+    }
+  }
+  
+  // Specific Voxel fixes for UI Buttons
+  .action-buttons .fab {
+    border: 2px solid #ffffff !important;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.8) !important;
+    transition: transform 0.1s, box-shadow 0.1s !important;
+    
+    &:hover {
+      transform: translate(3px, 3px) !important; // physical button press
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.8) !important;
+    }
+  }
+
+  .theme-menu {
+    border: 4px solid #422d1b;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+    border-radius: 0;
+
+    .theme-option {
+      border-radius: 0;
+      margin-bottom: 4px;
+      border: 2px solid transparent;
+      &:hover {
+        border: 2px solid #51f0ea;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  // Style bullet markers like inventory blocks
+  .bullet-list li::marker {
+    color: #51f0ea !important;
+    content: "■ ";
+    font-size: 0.8em;
+  }
+}
+
+// ─── Angular Docs Theme Override ────────────────────────────────
+:host-context([data-theme='angular']) {
+  
+  // Transform standard card containers into sleek dark-mode document wrappers
+  .resume-section {
+    background-color: #18181b;
+    border: 1px solid #27272a !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    margin: 0 0 1.5rem 0 !important;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+    cursor: pointer;
+    outline: none;
+
+    // Glowing Neon Dark-Mode Hover Response
+    &:hover {
+      transform: translateY(-2px) !important;
+      background-color: #1a1a1e !important;
+      border-color: #b24fff !important;
+      box-shadow: 0 8px 30px rgba(178, 79, 255, 0.15) !important;
+    }
+    
+    // Explicit Focus Interaction
+    &:focus {
+      outline: none;
+      transform: scale(1.02) !important;
+      border-color: #b24fff !important;
+      box-shadow: 0 10px 40px rgba(178, 79, 255, 0.3) !important;
+      z-index: 100;
+      position: relative;
+    }
+  }
+
+  // The massive Angular Gradient applied strictly to the Section Headers and Resume Name
+  .section-title, .resume-name {
+    background: linear-gradient(135deg, #8121ff, #ff1a8c) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important; // Absolute fallback override
+    font-weight: 800 !important; // Extra heavy to show off the purple-pink gradient
+    border-bottom: none !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  // Subheadings styled in standard brand purple
+  .employer-name, .edu-degree, .summary-headline {
+    color: #b24fff !important; 
+  }
+
+  // Treat specific technical references as <code /> monospace blocks
+  .project-name {
+    font-family: "Roboto Mono", monospace !important;
+    color: #c084fc !important; // Lighter Lilac/Purple shift
+    font-size: 1.05em;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .edu-date, .exp-date {
+    font-family: "Roboto Mono", monospace !important;
+    color: #a1a1aa !important;
+  }
+
+  // Style bullet markers to look like CLI Prompts
+  .bullet-list li::marker {
+    color: #ff3c70 !important;
+    content: "> ";
+    font-family: "Roboto Mono", monospace;
+  }
+
+  // Standardize horizontal breaks to subtle gray
+  hr {
+    display: block !important;
+    border-top: 1px solid #27272a !important;
+    opacity: 0.5;
+  }
+
+  // The master layout Button is full Angular Purple Gradient
+  .action-buttons .fab {
+    background: linear-gradient(135deg, #c084fc, #b24fff) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(178, 79, 255, 0.4) !important;
+
+    &:hover {
+      background: linear-gradient(135deg, #b24fff, #8121ff) !important;
+      transform: scale(1.05) !important;
+      box-shadow: 0 6px 25px rgba(178, 79, 255, 0.6) !important;
+    }
+  }
+
+  // Dropdown menu respects dark mode border constraints and transparency
+  .theme-menu {
+    border: 1px solid #27272a !important;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8) !important;
+  }
+}
+
+// ─── Amazon e-Commerce Override ───────────────────────────────
+:host-context([data-theme='amazon']) {
+  // Clear the main wrapper shadow, typical of wide storefronts
+  .resume-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important; // container disappears
+    padding: 1rem !important; // reset padding to let cards breathe
+  }
+
+  // Turn sections into discrete Product Listing Cards
+  .resume-section {
+    background-color: #ffffff;
+    border: 1px solid #D5D9D9 !important;
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+    margin: 0 0 1rem 0 !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+    transition: box-shadow 0.2s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0.2s ease !important;
+    cursor: pointer;
+    outline: none;
+    
+    // Very subtle lift, no zooming or cinematic glowing
+    &:hover {
+      transform: none !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      background-color: #ffffff !important;
+      border: 1px solid #D5D9D9 !important;
+    }
+
+    // Physical explicit "click-to-focus" state
+    &:focus {
+      transform: scale(1.05) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+      z-index: 100;
+      position: relative;
+      border-color: #FF9900 !important; // Pop the border with Amazon Orange on selection
+    }
+  }
+
+  // Strip natural separating elements since cards now segment content
+  hr {
+    display: none !important;
+  }
+
+  // Brand the action buttons as the universal "Add to Cart" yellow interaction
+  .action-buttons .fab {
+    background-color: #FFD814 !important;
+    color: #0F1111 !important;
+    border: 1px solid #FCD200 !important;
+    box-shadow: 0 2px 5px rgba(213,217,217,0.5) !important;
+    border-radius: 100px !important; // Perfect pill shape
+    transition: background-color 0.2s, transform 0.2s !important;
+
+    &:hover {
+      background-color: #F7CA00 !important;
+      transform: scale(1.02) !important;
+    }
+  }
+
+  // Style the theme speed-dial
+  .theme-menu {
+    border: 1px solid #D5D9D9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+
 }

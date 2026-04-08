@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  isDarkMode = false;
+  theme: 'light' | 'dark' | 'netflix' | 'minecraft' | 'amazon' | 'angular' = 'light';
+  showNetflixIntro = false;
   contactInfo = {
     phone: '+91 8********0',
     email: 'vivekkumarbiswal@gmail.com',
@@ -17,22 +18,44 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      this.isDarkMode = true;
-      document.documentElement.setAttribute('data-theme', 'dark');
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'netflix' | 'minecraft' | 'amazon' | 'angular';
+    if (savedTheme) {
+      this.theme = savedTheme;
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.theme = 'dark';
     }
+    this.applyTheme(this.theme);
   }
 
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    if (this.isDarkMode) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
+  isThemeMenuOpen = false;
+
+  toggleThemeMenu() {
+    this.isThemeMenuOpen = !this.isThemeMenuOpen;
+  }
+
+  setTheme(selectedTheme: 'light' | 'dark' | 'netflix' | 'minecraft' | 'amazon' | 'angular') {
+    if (selectedTheme === 'netflix' && this.theme !== 'netflix') {
+      this.triggerNetflixIntro();
     }
+    this.theme = selectedTheme;
+    this.applyTheme(this.theme);
+    this.isThemeMenuOpen = false;
+  }
+
+  triggerNetflixIntro() {
+    this.showNetflixIntro = true;
+    setTimeout(() => {
+      this.showNetflixIntro = false;
+    }, 1000);
+  }
+
+  applyTheme(themeName: string) {
+    if (themeName === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', themeName);
+    }
+    localStorage.setItem('theme', themeName);
   }
 
   downloadResume() {
