@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   theme: 'light' | 'dark' | 'netflix' | 'minecraft' | 'amazon' | 'angular' = 'light';
   showNetflixIntro = false;
+  isThemeMenuOpen = false;
+  scrollProgress = 0;
+
+  @ViewChild('themeMenuContainer') themeMenuContainer!: ElementRef;
+
+  @HostListener('window:scroll')
+  onScroll() {
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (window.scrollY / totalHeight) * 100;
+    this.scrollProgress = progress;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    if (this.isThemeMenuOpen && this.themeMenuContainer && !this.themeMenuContainer.nativeElement.contains(event.target)) {
+      this.isThemeMenuOpen = false;
+    }
+  }
   contactInfo = {
     phone: '+91 8********0',
     email: 'vivekkumarbiswal@gmail.com',
@@ -20,7 +38,6 @@ export class AppComponent implements OnInit {
     this.applyTheme(this.theme);
   }
 
-  isThemeMenuOpen = false;
 
   toggleThemeMenu() {
     this.isThemeMenuOpen = !this.isThemeMenuOpen;

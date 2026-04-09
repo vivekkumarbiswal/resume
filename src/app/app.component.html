@@ -1,7 +1,10 @@
 <div class="resume-wrapper">
+  <div class="scroll-progress-container no-print">
+    <div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
+  </div>
 
   @if (showNetflixIntro) {
-    <div class="netflix-intro"></div>
+  <div class="netflix-intro"></div>
   }
 
   <!-- Resume Container -->
@@ -12,38 +15,19 @@
       <div class="contact-info">
         <!-- Phone -->
         <span class="contact-item">
-          <svg
-            class="contact-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.52-1.52a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-            />
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.52-1.52a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
           {{ contactInfo.phone }}
         </span>
 
         <!-- Email -->
         <a class="contact-item" [href]="'mailto:' + contactInfo.email">
-          <svg
-            class="contact-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            />
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,13 2,6" />
           </svg>
           {{ contactInfo.email }}
@@ -51,46 +35,26 @@
 
         <!-- LinkedIn -->
         <a class="contact-item" [href]="contactInfo.linkedin" target="_blank">
-          <svg
-            class="contact-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-            />
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
           </svg>
           LinkedIn
         </a>
 
         <!-- GitHub -->
         <a class="contact-item" [href]="contactInfo.github" target="_blank">
-          <svg
-            class="contact-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path
-              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-            />
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
           </svg>
           GitHub
         </a>
 
         <!-- Location -->
         <span class="contact-item">
-          <svg
-            class="contact-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
@@ -168,9 +132,7 @@
         <!-- Project 1 -->
         <div class="project-block">
           <div class="project-header">
-            <span class="project-name"
-              >Project: Deutsche Bank – MyBank Spain (TCS Interactive)</span
-            >
+            <span class="project-name">Project: Deutsche Bank – MyBank Spain (TCS Interactive)</span>
             <span class="project-date">Apr 2025 – Oct 2025</span>
           </div>
           <ul class="bullet-list">
@@ -200,10 +162,8 @@
         <!-- Project 2 -->
         <div class="project-block">
           <div class="project-header">
-            <span class="project-name"
-              >Project: BFSI US East – Insurance – Offshore – TTI (Technology,
-              Transformation and Innovation)</span
-            >
+            <span class="project-name">Project: BFSI US East – Insurance – Offshore – TTI (Technology,
+              Transformation and Innovation)</span>
             <span class="project-date">Nov 2024 – Mar 2025</span>
           </div>
           <ul class="bullet-list">
@@ -214,9 +174,7 @@
               performance optimization best practices.
             </li>
             <li>
-              <span class="highlight"
-                >PWA Implementation (AIG Client – POC):</span
-              >
+              <span class="highlight">PWA Implementation (AIG Client – POC):</span>
               Successfully delivered a Proof of Concept (POC) for the AIG client
               by integrating Progressive Web App (PWA) capabilities using
               Angular Service Worker, enabling installability, improved load
@@ -235,9 +193,7 @@
         <!-- Project 3 -->
         <div class="project-block">
           <div class="project-header">
-            <span class="project-name"
-              >Project: Genworth Financial – CareScout</span
-            >
+            <span class="project-name">Project: Genworth Financial – CareScout</span>
             <span class="project-date">Nov 2021 – Oct 2024</span>
           </div>
           <ul class="bullet-list">
@@ -248,18 +204,14 @@
               within Agile environments.
             </li>
             <li>
-              <span class="highlight"
-                >Frontend Development &amp; Rebranding:</span
-              >
+              <span class="highlight">Frontend Development &amp; Rebranding:</span>
               Developed and maintained Angular (11–12) applications using RxJS,
               Angular Material, HTML5, SCSS, and Bootstrap, leading the
               rebranding of the FIELD NURSE (Provider) Portal to enhance UI
               consistency and user experience.
             </li>
             <li>
-              <span class="highlight"
-                >Application Upgrade &amp; Build Management:</span
-              >
+              <span class="highlight">Application Upgrade &amp; Build Management:</span>
               Managed web and mobile (Android &amp; iOS) builds, upgraded
               Angular from v11 to v12, replaced deprecated libraries, and
               migrated ngx-modal to Angular Material Dialog to improve stability
@@ -289,27 +241,20 @@
         <h2 class="section-title">Certificate</h2>
         <ul class="cert-list">
           <li>
-            <a
-              href="https://www.coursera.org/account/accomplishments/verify/LAC7LP47YUXY"
-              >HTML, CSS, and JavaScript for Web Developers</a
-            >
+            <a href="https://www.coursera.org/account/accomplishments/verify/LAC7LP47YUXY">HTML, CSS, and JavaScript for
+              Web Developers</a>
           </li>
           <li>
-            <a
-              href="https://www.coursera.org/account/accomplishments/verify/RK5D8FWPFL3B"
-              >Foundations of User Experience (UX) Design</a
-            >
+            <a href="https://www.coursera.org/account/accomplishments/verify/RK5D8FWPFL3B">Foundations of User
+              Experience (UX) Design</a>
           </li>
           <li>
-            <a href="https://rhtapps.redhat.com/verify?certId=170-069-710"
-              >Red Hat Certified System Administrator (RHCSA)</a
-            >
+            <a href="https://rhtapps.redhat.com/verify?certId=170-069-710">Red Hat Certified System Administrator
+              (RHCSA)</a>
           </li>
           <li>
-            <a
-              href="https://www.certmetrics.com/comptia/public/verification.aspx/"
-              >CompTIA Strata IT Fundamentals Certification</a
-            >
+            <a href="https://www.certmetrics.com/comptia/public/verification.aspx/">CompTIA Strata IT Fundamentals
+              Certification</a>
           </li>
         </ul>
       </section>
@@ -320,10 +265,8 @@
     <section class="resume-section" tabindex="0">
       <h2 class="section-title">Education</h2>
       <div class="education-row">
-        <span class="edu-degree"
-          >Master of Computer Application (MCA),
-          <span class="edu-institute">BIT - CSVTU, Chhattisgarh</span></span
-        >
+        <span class="edu-degree">Master of Computer Application (MCA),
+          <span class="edu-institute">BIT - CSVTU, Chhattisgarh</span></span>
         <span class="edu-date">2018 – 2021</span>
       </div>
     </section>
@@ -332,115 +275,100 @@
 
   <!-- Floating Action Buttons -->
   <div class="action-buttons no-print">
-    <div class="theme-menu-container">
+    <div class="theme-menu-container" #themeMenuContainer>
       @if (isThemeMenuOpen) {
-        <div class="theme-menu">
-          <button (click)="setTheme('light')" class="theme-option" [class.active]="theme === 'light'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            Light Mode
-          </button>
-          <button (click)="setTheme('dark')" class="theme-option" [class.active]="theme === 'dark'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            Dark Mode
-          </button>
-          <button (click)="setTheme('netflix')" class="theme-option netflix-option" [class.active]="theme === 'netflix'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            Netflix Theme
-          </button>
-          <button (click)="setTheme('angular')" class="theme-option angular-option" [class.active]="theme === 'angular'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 6l1.5 12L12 22l8.5-4L22 6z"></path>
-              <path d="M12 2v20"></path>
-            </svg>
-            Angular Theme
-          </button>
-          <button (click)="setTheme('amazon')" class="theme-option amazon-option" [class.active]="theme === 'amazon'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-            Amazon Theme
-          </button>
-          <button (click)="setTheme('minecraft')" class="theme-option minecraft-option" [class.active]="theme === 'minecraft'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
-              <rect x="3" y="3" width="18" height="18" />
-              <path d="M3 9h18M9 21V9" />
-            </svg>
-            Minecraft Theme
-          </button>
-        </div>
+      <div class="theme-menu">
+        <button (click)="setTheme('light')" class="theme-option" [class.active]="theme === 'light'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          Light Mode
+        </button>
+        <button (click)="setTheme('dark')" class="theme-option" [class.active]="theme === 'dark'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          Dark Mode
+        </button>
+        <button (click)="setTheme('netflix')" class="theme-option netflix-option" [class.active]="theme === 'netflix'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Netflix Theme
+        </button>
+        <button (click)="setTheme('angular')" class="theme-option angular-option" [class.active]="theme === 'angular'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 6l1.5 12L12 22l8.5-4L22 6z"></path>
+            <path d="M12 2v20"></path>
+          </svg>
+          Angular Theme
+        </button>
+        <button (click)="setTheme('amazon')" class="theme-option amazon-option" [class.active]="theme === 'amazon'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          Amazon Theme
+        </button>
+        <button (click)="setTheme('minecraft')" class="theme-option minecraft-option"
+          [class.active]="theme === 'minecraft'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+            <rect x="3" y="3" width="18" height="18" />
+            <path d="M3 9h18M9 21V9" />
+          </svg>
+          Minecraft Theme
+        </button>
+      </div>
       }
-      <button (click)="toggleThemeMenu()" 
-              class="fab" 
-              [class.fab--dark]="theme === 'light' || theme === 'dark'"
-              [class.fab--netflix]="theme === 'netflix'"
-              [class.fab--minecraft]="theme === 'minecraft'"
-              [class.fab--amazon]="theme === 'amazon'"
-              [class.fab--angular]="theme === 'angular'"
-              title="Select Theme">
+      <button (click)="toggleThemeMenu()" class="fab" [class.fab--dark]="theme === 'light' || theme === 'dark'"
+        [class.fab--netflix]="theme === 'netflix'" [class.fab--minecraft]="theme === 'minecraft'"
+        [class.fab--amazon]="theme === 'amazon'" [class.fab--angular]="theme === 'angular'" title="Select Theme">
         <!-- Palette/Themes Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
           <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
           <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
           <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.525 2 12 2z"></path>
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.525 2 12 2z">
+          </path>
         </svg>
       </button>
     </div>
-    <button
-      (click)="downloadResume()"
-      class="fab"
-      [class.fab--dark]="theme === 'light' || theme === 'dark'"
-      [class.fab--netflix]="theme === 'netflix'"
-      [class.fab--minecraft]="theme === 'minecraft'"
-      [class.fab--amazon]="theme === 'amazon'"
-      [class.fab--angular]="theme === 'angular'"
-      title="Download Resume PDF"
-    >
+    <button (click)="downloadResume()" class="fab" [class.fab--dark]="theme === 'light' || theme === 'dark'"
+      [class.fab--netflix]="theme === 'netflix'" [class.fab--minecraft]="theme === 'minecraft'"
+      [class.fab--amazon]="theme === 'amazon'" [class.fab--angular]="theme === 'angular'" title="Download Resume PDF">
       <!-- Download Icon SVG -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
         <polyline points="7 10 12 15 17 10" />
         <line x1="12" y1="15" x2="12" y2="3" />
       </svg>
     </button>
-    <a
-      [href]="'mailto:' + contactInfo.email"
-      class="fab"
-      [class.fab--blue]="theme === 'light' || theme === 'dark'"
-      [class.fab--netflix]="theme === 'netflix'"
-      [class.fab--minecraft]="theme === 'minecraft'"
-      [class.fab--amazon]="theme === 'amazon'"
-      [class.fab--angular]="theme === 'angular'"
-      title="Contact Me"
-    >
+    <a [href]="'mailto:' + contactInfo.email" class="fab" [class.fab--blue]="theme === 'light' || theme === 'dark'"
+      [class.fab--netflix]="theme === 'netflix'" [class.fab--minecraft]="theme === 'minecraft'"
+      [class.fab--amazon]="theme === 'amazon'" [class.fab--angular]="theme === 'angular'" title="Contact Me">
       <!-- Email Icon SVG -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path
-          d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
         <polyline points="22,6 12,13 2,6"></polyline>
       </svg>
     </a>
