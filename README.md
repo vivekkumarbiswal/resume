@@ -19,7 +19,7 @@ Hi, I’m **Vivek Kumar Biswal** — a Frontend Developer with **4+ years of exp
 
 ## Live Demo
 
-(Add your deployed link here – Netlify / Firebase / GitHub Pages)
+https://vivekkumarbiswal.github.io/resume/
 
 ---
 
