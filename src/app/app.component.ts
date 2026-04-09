@@ -16,14 +16,7 @@ export class AppComponent implements OnInit {
     github: 'https://github.com/vivekkumarbiswal',
     location: 'Bangalore',
   };
-
   ngOnInit() {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'netflix' | 'minecraft' | 'amazon' | 'angular';
-    if (savedTheme) {
-      this.theme = savedTheme;
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      this.theme = 'dark';
-    }
     this.applyTheme(this.theme);
   }
 
