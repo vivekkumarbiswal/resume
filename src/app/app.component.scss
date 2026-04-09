@@ -520,7 +520,7 @@ $font-size-4xl: var(--font-size-4xl, 2.25rem);
 
   &--blue {
     background-color: $color-link;
-    &:hover { background-color: #color-link-hover; }
+    &:hover { background-color: $color-link-hover; }
   }
 }
 
